@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    fontWeight: '600',
     color: '#112340',
     marginTop: 20,
+    fontFamily: 'Nunito-SemiBold',
   },
 });

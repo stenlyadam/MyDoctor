@@ -6,7 +6,7 @@ const Stack = createStackNavigator();
 
 const Router = () => {
   return (
-    <Stack.Navigator initialRouteName="Splash">
+    <Stack.Navigator initialRouteName="Login">
       <Stack.Screen
         name="Splash"
         component={Splash}

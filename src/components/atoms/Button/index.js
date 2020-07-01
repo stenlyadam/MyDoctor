@@ -5,11 +5,7 @@ import IconOnly from './IconOnly';
 
 export default function Button({type, title, onPress, icon}) {
   if (type === 'icon-only') {
-    return (
-      <TouchableOpacity onPress={onPress}>
-        <IconOnly icon={icon} />
-      </TouchableOpacity>
-    );
+    return <IconOnly icon={icon} onPress={onPress} />;
   }
   return (
     <TouchableOpacity style={styles.container(type)} onPress={onPress}>

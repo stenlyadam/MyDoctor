@@ -2,10 +2,10 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {colors} from '../../../utils';
 
-const Link = ({label, size, align}) => {
+const Link = ({title, size, align}) => {
   return (
     <View>
-      <Text style={styles.label(size, align)}>{label}</Text>
+      <Text style={styles.label(size, align)}>{title}</Text>
     </View>
   );
 };

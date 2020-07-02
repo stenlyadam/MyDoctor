@@ -16,11 +16,11 @@ export default function Login() {
       <Gap height={40} />
       <Input label="Password" />
       <Gap height={10} />
-      <Link label="Forgot My Password" size={12} />
+      <Link title="Forgot My Password" size={12} />
       <Gap height={40} />
       <Button title="Sign In" />
       <Gap height={30} />
-      <Link label="Create New Account" size={16} align="center" />
+      <Link title="Create New Account" size={16} align="center" />
     </View>
   );
 }

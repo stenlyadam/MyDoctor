@@ -8,6 +8,7 @@ import {
 } from '../../components/molecules';
 import {fonts, colors} from '../../utils';
 import {Gap} from '../../components/atoms';
+import {JSONCategoryDoctor} from '../../assets';
 
 const Doctor = () => {
   return (
@@ -25,10 +26,9 @@ const Doctor = () => {
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               <View style={styles.doctorCategory}>
                 <Gap width={32} />
-                <DoctorCategory />
-                <DoctorCategory />
-                <DoctorCategory />
-                <DoctorCategory />
+                {JSONCategoryDoctor.data.map((item) => (
+                  <DoctorCategory key={item.id} category={item.category} />
+                ))}
                 <Gap width={22} />
               </View>
             </ScrollView>

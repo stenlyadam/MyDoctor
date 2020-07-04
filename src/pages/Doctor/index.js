@@ -15,29 +15,33 @@ const Doctor = () => {
       <View style={styles.content}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <Gap height={30} />
-          <HomeProfile />
-          <Text style={styles.welcome}>
-            Mau konsultasi dengan siapa hari ini?
-          </Text>
+          <View style={styles.wrapperSection}>
+            <HomeProfile />
+            <Text style={styles.welcome}>
+              Mau konsultasi dengan siapa hari ini?
+            </Text>
+          </View>
           <View style={styles.scrollWrapper}>
             <ScrollView horizontal showsHorizontalScrollIndicator={false}>
               <View style={styles.doctorCategory}>
-                <Gap width={16} />
+                <Gap width={32} />
                 <DoctorCategory />
                 <DoctorCategory />
                 <DoctorCategory />
                 <DoctorCategory />
-                <Gap width={6} />
+                <Gap width={22} />
               </View>
             </ScrollView>
           </View>
-          <Text style={styles.labelSection}>Top Rated Doctors</Text>
-          <RatedDoctor />
-          <Gap height={16} />
-          <RatedDoctor />
-          <Gap height={16} />
-          <RatedDoctor />
-          <Text style={styles.labelSection}>Good News</Text>
+          <View style={styles.wrapperSection}>
+            <Text style={styles.labelSection}>Top Rated Doctors</Text>
+            <RatedDoctor />
+            <Gap height={16} />
+            <RatedDoctor />
+            <Gap height={16} />
+            <RatedDoctor />
+            <Text style={styles.labelSection}>Good News</Text>
+          </View>
           <NewsItem />
           <NewsItem />
           <NewsItem />
@@ -56,7 +60,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   content: {
-    paddingHorizontal: 12,
     backgroundColor: colors.white,
     flex: 1,
     borderBottomLeftRadius: 20,
@@ -82,5 +85,8 @@ const styles = StyleSheet.create({
     fontFamily: fonts.primary[600],
     fontSize: 16,
     color: colors.text.primary,
+  },
+  wrapperSection: {
+    paddingHorizontal: 16,
   },
 });

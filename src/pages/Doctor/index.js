@@ -13,31 +13,36 @@ const Doctor = () => {
   return (
     <View style={styles.page}>
       <View style={styles.content}>
-        <HomeProfile />
-        <Text style={styles.welcome}>
-          Mau konsultasi dengan siapa hari ini?
-        </Text>
-        <View style={styles.scrollWrapper}>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <View style={styles.doctorCategory}>
-              <Gap width={16} />
-              <DoctorCategory />
-              <DoctorCategory />
-              <DoctorCategory />
-              <DoctorCategory />
-              <Gap width={6} />
-            </View>
-          </ScrollView>
-        </View>
-
-        <Text style={styles.labelSection}>Top Rated Doctors</Text>
-        <RatedDoctor />
-        <RatedDoctor />
-        <RatedDoctor />
-        <Text style={styles.labelSection}>Good News</Text>
-        <NewsItem />
-        <NewsItem />
-        <NewsItem />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <Gap height={30} />
+          <HomeProfile />
+          <Text style={styles.welcome}>
+            Mau konsultasi dengan siapa hari ini?
+          </Text>
+          <View style={styles.scrollWrapper}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              <View style={styles.doctorCategory}>
+                <Gap width={16} />
+                <DoctorCategory />
+                <DoctorCategory />
+                <DoctorCategory />
+                <DoctorCategory />
+                <Gap width={6} />
+              </View>
+            </ScrollView>
+          </View>
+          <Text style={styles.labelSection}>Top Rated Doctors</Text>
+          <RatedDoctor />
+          <Gap height={16} />
+          <RatedDoctor />
+          <Gap height={16} />
+          <RatedDoctor />
+          <Text style={styles.labelSection}>Good News</Text>
+          <NewsItem />
+          <NewsItem />
+          <NewsItem />
+          <Gap height={30} />
+        </ScrollView>
       </View>
     </View>
   );
@@ -52,7 +57,6 @@ const styles = StyleSheet.create({
   },
   content: {
     paddingHorizontal: 12,
-    paddingVertical: 30,
     backgroundColor: colors.white,
     flex: 1,
     borderBottomLeftRadius: 20,

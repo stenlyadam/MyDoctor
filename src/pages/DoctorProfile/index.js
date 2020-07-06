@@ -13,7 +13,10 @@ const DoctorProfile = ({navigation}) => {
       <ProfileItem />
       <ProfileItem />
       <View style={styles.action}>
-        <Button title="Start Consultation" />
+        <Button
+          title="Start Consultation"
+          onPress={() => navigation.navigate('Chatting')}
+        />
       </View>
     </View>
   );

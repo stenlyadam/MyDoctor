@@ -15,6 +15,7 @@ const UserProfile = ({navigation}) => {
         desc="Last updated yesterday"
         type="next"
         icon="edit-profile"
+        onPress={() => navigation.navigate('EditProfile')}
       />
       <List
         name="Edit Profile"

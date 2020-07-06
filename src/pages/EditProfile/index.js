@@ -3,10 +3,10 @@ import {ScrollView, StyleSheet, View} from 'react-native';
 import {Button, Gap, Header, Input, Profile} from '../../components';
 import {colors} from '../../utils';
 
-const EditProfile = () => {
+const EditProfile = ({navigation}) => {
   return (
     <View style={styles.page}>
-      <Header title="Edit Profile" />
+      <Header title="Edit Profile" onPress={() => navigation.goBack()} />
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.content}>
           <Profile />

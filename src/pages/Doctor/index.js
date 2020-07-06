@@ -8,7 +8,12 @@ import {
 } from '../../components/molecules';
 import {fonts, colors} from '../../utils';
 import {Gap} from '../../components/atoms';
-import {JSONCategoryDoctor} from '../../assets';
+import {
+  JSONCategoryDoctor,
+  DummyDoctor1,
+  DummyDoctor2,
+  DummyDoctor3,
+} from '../../assets';
 
 const Doctor = ({navigation}) => {
   return (
@@ -39,11 +44,26 @@ const Doctor = ({navigation}) => {
           </View>
           <View style={styles.wrapperSection}>
             <Text style={styles.labelSection}>Top Rated Doctors</Text>
-            <RatedDoctor />
+            <RatedDoctor
+              name="Alexa Rachel"
+              onPress={() => navigation.navigate('DoctorProfile')}
+              desc="Pediatrician"
+              avatar={DummyDoctor1}
+            />
             <Gap height={16} />
-            <RatedDoctor />
+            <RatedDoctor
+              name="Sunny Frank"
+              onPress={() => navigation.navigate('DoctorProfile')}
+              desc="Dentist"
+              avatar={DummyDoctor2}
+            />
             <Gap height={16} />
-            <RatedDoctor />
+            <RatedDoctor
+              name="Poe Minn"
+              onPress={() => navigation.navigate('DoctorProfile')}
+              desc="Podiatrist"
+              avatar={DummyDoctor3}
+            />
             <Text style={styles.labelSection}>Good News</Text>
           </View>
           <NewsItem />

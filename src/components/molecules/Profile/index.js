@@ -45,11 +45,13 @@ const styles = StyleSheet.create({
     fontFamily: fonts.primary[600],
     fontSize: 20,
     color: colors.text.primary,
+    textAlign: 'center',
   },
   profession: {
     fontFamily: fonts.primary.normal,
     fontSize: 16,
     color: colors.text.secondary,
+    textAlign: 'center',
   },
   removePhoto: {
     position: 'absolute',

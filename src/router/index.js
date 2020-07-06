@@ -17,6 +17,7 @@ import {
   EditProfile,
 } from '../pages';
 import {BottomNavigator} from '../components';
+import DoctorProfile from '../pages/DoctorProfile';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -82,6 +83,11 @@ const Router = () => {
       <Stack.Screen
         name="EditProfile"
         component={EditProfile}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="DoctorProfile"
+        component={DoctorProfile}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

@@ -11,10 +11,11 @@ import {
   Doctor,
   Messages,
   Hospitals,
+  ChooseDoctor,
+  Chatting,
+  UserProfile,
 } from '../pages';
 import {BottomNavigator} from '../components';
-import ChooseDoctor from '../pages/ChooseDoctor';
-import Chatting from '../pages/Chatting';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -70,6 +71,11 @@ const Router = () => {
       <Stack.Screen
         name="Chatting"
         component={Chatting}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="UserProfile"
+        component={UserProfile}
         options={{headerShown: false}}
       />
     </Stack.Navigator>

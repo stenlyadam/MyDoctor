@@ -2,8 +2,12 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {colors} from '../../../utils';
 import {Button, Gap} from '../../atoms';
+import HeaderProfile from './HeaderProfile';
 
 const Header = ({title, onPress, type}) => {
+  if (type === 'dark-profile') {
+    return <HeaderProfile onPress={onPress} />;
+  }
   return (
     <View style={styles.page(type)}>
       <Button

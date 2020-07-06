@@ -1,9 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {ILCatUmum, ILCatPsikiater, ILCatObat} from '../../../assets';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {ILCatObat, ILCatPsikiater, ILCatUmum} from '../../../assets';
 import {colors, fonts} from '../../../utils';
 
-const DoctorCategory = ({category}) => {
+const DoctorCategory = ({category, onPress}) => {
   const Icon = () => {
     switch (category) {
       case 'dokter umum':
@@ -17,11 +17,11 @@ const DoctorCategory = ({category}) => {
     }
   };
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Icon />
       <Text style={styles.label}>Saya butuh</Text>
       <Text style={styles.labelDoctor}>{category}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

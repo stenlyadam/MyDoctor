@@ -1,19 +1,19 @@
-import React, {useEffect} from 'react';
-import {StyleSheet, Text, View, ScrollView} from 'react-native';
+import React from 'react';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {
-  HomeProfile,
-  DoctorCategory,
-  RatedDoctor,
-  NewsItem,
-} from '../../components/molecules';
-import {fonts, colors, getData} from '../../utils';
-import {Gap} from '../../components/atoms';
-import {
-  JSONCategoryDoctor,
   DummyDoctor1,
   DummyDoctor2,
   DummyDoctor3,
+  JSONCategoryDoctor,
 } from '../../assets';
+import {Gap} from '../../components/atoms';
+import {
+  DoctorCategory,
+  HomeProfile,
+  NewsItem,
+  RatedDoctor,
+} from '../../components/molecules';
+import {colors, fonts} from '../../utils';
 
 const Doctor = ({navigation}) => {
   return (

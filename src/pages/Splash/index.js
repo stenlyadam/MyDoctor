@@ -2,14 +2,20 @@ import React, {useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {ILLogo} from '../../assets';
 import {colors} from '../../utils';
+import {Fire} from '../../config';
 
 const Splash = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('GetStarted');
+      Fire.auth().onAuthStateChanged((user) => {
+        if (user) {
+          navigation.replace('MainApp');
+        } else {
+          navigation.replace('GetStarted');
+        }
+      });
     }, 3000);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [navigation]);
   return (
     <View style={styles.page}>
       <ILLogo />

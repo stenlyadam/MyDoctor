@@ -6,6 +6,9 @@ export const useForm = (initialState) => {
   return [
     values,
     (type, params) => {
+      if (type === 'reset') {
+        return setValues(initialState);
+      }
       return setValues({...values, [type]: params});
     },
   ];

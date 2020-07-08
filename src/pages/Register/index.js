@@ -23,8 +23,7 @@ const Register = ({navigation}) => {
     Fire.auth()
       .createUserWithEmailAndPassword(form.email, form.password)
       .then((success) => {
-        console.log('Success: ', success);
-
+        // console.log('Success: ', success);
         const data = {
           uid: success.user.uid,
           fullName: form.fullName,

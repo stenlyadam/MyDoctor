@@ -3,7 +3,7 @@ import {Image, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {ILNullPhoto, IconAddPhoto, IconRemovePhoto} from '../../assets';
 import {Button, Header, Gap} from '../../components';
 import Link from '../../components/atoms/Link';
-import {colors, fonts} from '../../utils';
+import {colors, fonts, storeData} from '../../utils';
 import ImagePicker from 'react-native-image-picker';
 import {showMessage} from 'react-native-flash-message';
 import {Fire} from '../../config';
@@ -16,28 +16,35 @@ const UploadPhoto = ({navigation, route}) => {
   const [photoForDB, setPhotoForDB] = useState('');
 
   const getImage = () => {
-    ImagePicker.launchImageLibrary({}, (response) => {
-      if (response.didCancel || response.error) {
-        showMessage({
-          message: 'Ooops, sepertinya anda tidak memilih foto',
-          type: 'default',
-          backgroundColor: colors.error,
-          color: colors.white,
-        });
-      } else {
-        const source = {uri: response.uri};
-        setPhoto(source);
-        setHasPhoto(true);
-        setPhotoForDB(`data:${response.type};base64, ${response.data}`);
-        console.log('Response : ', response);
-      }
-    });
+    ImagePicker.launchImageLibrary(
+      {quality: 0.5, maxHeight: 200, maxWidth: 200},
+      (response) => {
+        if (response.didCancel || response.error) {
+          showMessage({
+            message: 'Ooops, sepertinya anda tidak memilih foto',
+            type: 'default',
+            backgroundColor: colors.error,
+            color: colors.white,
+          });
+        } else {
+          const source = {uri: response.uri};
+          setPhoto(source);
+          setHasPhoto(true);
+          setPhotoForDB(`data:${response.type};base64, ${response.data}`);
+          console.log('Response : ', response);
+        }
+      },
+    );
   };
 
   const uploadAndContinue = () => {
     Fire.database()
       .ref('users/' + uid + '/')
       .update({photo: photoForDB});
+
+    const data = route.params;
+    data.photo = photoForDB;
+    storeData('user', data);
 
     navigation.navigate('MainApp');
   };

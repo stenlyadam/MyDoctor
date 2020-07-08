@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
+import {showMessage} from 'react-native-flash-message';
 import {Button, Gap, Input} from '../../components';
 import {Header} from '../../components/molecules';
-import {colors, useForm} from '../../utils';
-import {Fire} from '../../config';
 import Loading from '../../components/molecules/Loading';
-import {showMessage, hideMessage} from 'react-native-flash-message';
-import {set} from 'react-native-reanimated';
+import {Fire} from '../../config';
+import {colors, storeData, useForm} from '../../utils';
 
 const Register = ({navigation}) => {
   const [form, setForm] = useForm({
@@ -19,8 +18,7 @@ const Register = ({navigation}) => {
   const [loading, setLoading] = useState(false);
 
   const onContinue = () => {
-    console.log(form);
-
+    // console.log(form);
     setLoading(true);
     Fire.auth()
       .createUserWithEmailAndPassword(form.email, form.password)
@@ -29,7 +27,7 @@ const Register = ({navigation}) => {
 
         const data = {
           fullName: form.fullName,
-          professon: form.profession,
+          profession: form.profession,
           email: form.email,
         };
 
@@ -37,8 +35,11 @@ const Register = ({navigation}) => {
           .ref('users/' + success.user.uid + '/')
           .set(data);
 
+        storeData('user', data);
+
         setLoading(false);
         setForm('reset');
+        navigation.navigate('UploadPhoto', data);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -82,11 +83,7 @@ const Register = ({navigation}) => {
               secureTextEntry
             />
             <Gap height={40} />
-            <Button
-              title="Continue"
-              // onPress={() => navigation.navigate('UploadPhoto')}
-              onPress={onContinue}
-            />
+            <Button title="Continue" onPress={onContinue} />
           </ScrollView>
         </View>
       </View>

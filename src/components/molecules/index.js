@@ -25,4 +25,5 @@ export {
   InputChat,
   Profile,
   ProfileItem,
+  Loading,
 };

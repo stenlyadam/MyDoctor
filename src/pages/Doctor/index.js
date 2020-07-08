@@ -16,10 +16,6 @@ import {
 } from '../../assets';
 
 const Doctor = ({navigation}) => {
-  useEffect(() => {
-    getData('user').then((res) => console.log(res));
-  }, []);
-
   return (
     <View style={styles.page}>
       <View style={styles.content}>

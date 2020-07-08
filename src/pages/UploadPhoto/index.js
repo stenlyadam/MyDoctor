@@ -114,11 +114,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: fonts.primary[600],
     marginTop: 26,
+    textTransform: 'capitalize',
   },
   profession: {
     fontSize: 18,
     fontFamily: fonts.primary.normal,
     marginTop: 4,
+    textTransform: 'capitalize',
   },
   profile: {
     justifyContent: 'center',

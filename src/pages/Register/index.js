@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import {ScrollView, StyleSheet, View} from 'react-native';
 import {showMessage} from 'react-native-flash-message';
-import {Button, Gap, Input} from '../../components';
-import {Header} from '../../components/molecules';
-import Loading from '../../components/molecules/Loading';
+import {Button, Gap, Input, Loading, Header} from '../../components';
 import {Fire} from '../../config';
 import {colors, storeData, useForm} from '../../utils';
 

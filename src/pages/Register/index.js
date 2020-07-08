@@ -26,6 +26,7 @@ const Register = ({navigation}) => {
         console.log('Success: ', success);
 
         const data = {
+          uid: success.user.uid,
           fullName: form.fullName,
           profession: form.profession,
           email: form.email,

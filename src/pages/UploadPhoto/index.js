@@ -6,12 +6,14 @@ import Link from '../../components/atoms/Link';
 import {colors, fonts} from '../../utils';
 import ImagePicker from 'react-native-image-picker';
 import {showMessage} from 'react-native-flash-message';
+import {Fire} from '../../config';
 
 const UploadPhoto = ({navigation, route}) => {
-  const {fullName, profession} = route.params;
-  const [hasPhoto, setHasPhoto] = useState(false);
+  const {uid, fullName, profession} = route.params;
 
+  const [hasPhoto, setHasPhoto] = useState(false);
   const [photo, setPhoto] = useState(ILNullPhoto);
+  const [photoForDB, setPhotoForDB] = useState('');
 
   const getImage = () => {
     ImagePicker.launchImageLibrary({}, (response) => {
@@ -26,9 +28,18 @@ const UploadPhoto = ({navigation, route}) => {
         const source = {uri: response.uri};
         setPhoto(source);
         setHasPhoto(true);
+        setPhotoForDB(`data:${response.type};base64, ${response.data}`);
         console.log('Response : ', response);
       }
     });
+  };
+
+  const uploadAndContinue = () => {
+    Fire.database()
+      .ref('users/' + uid + '/')
+      .update({photo: photoForDB});
+
+    navigation.navigate('MainApp');
   };
 
   return (
@@ -48,7 +59,7 @@ const UploadPhoto = ({navigation, route}) => {
           <Button
             disable={!hasPhoto}
             title="Upload and Continue"
-            onPress={() => navigation.replace('MainApp')}
+            onPress={uploadAndContinue}
           />
           <Gap height={30} />
           <Link
